@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% load widget_tweaks %} 
+{% load static %}
+{% load bootstrap4 %}
+{% block title %}Login{% endblock title %}
+{% block content %}
+<html>
+  <head>
+    <meta charset="utf-8" />
+    
+    
+
+    <meta name="description" content="" />
+
+   
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="{% static 'vendor/fonts/boxicons.css' %}" />
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="{% static 'vendor/css/pages/page-auth.css' %}" />
+
+    <!-- Helpers -->
+    <script src="{% static 'vendor/js/helpers.js' %}"></script>
+    <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/style1.css' %}" rel="stylesheet">
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="{% static 'js/config.js' %}"></script>
+    <style>
+      .alert {
+        padding: 20px;
+        background-color: #f44336; /* Red */
+        color: white;
+        margin-bottom: 15px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Content -->
+    
+    <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+          <!-- Register -->
+          <!--<div class="card">
+            <div class="card-body">-->
+              <!--<h4 class="mb-2">Welcome ! 👋</h4>
+              <p class="mb-4">Please sign-in to your account.</p>-->
+              
+
+              <form action="" method="post"  class="mb-3" method="POST" style=" width: 25vw; margin-left : 10vw;">
+                {% csrf_token %}
+                <!--{% if form.errors %}
+                <div class="alert" >Your username and password didn't match! Please try again.</div>
+                {% endif %}-->
+                {% for message in messages %}
+                <div class="alert" >{{message}}</div>
+				        {% endfor %}
+                <div class="mb-3 form-password-toggle">
+                    <h6 style="color:#FFFFFF";>Username</h6>
+                  <div class="input-group input-group-merge">
+                    <input type="text" name="username" placeholder="Enter your username" class="form-control"> 
+                  </div> 
+                  </div>
+                  <br>
+                  <div class="mb-3 form-password-toggle">
+                    <h6 style="color:#FFFFFF";>Password</h6>
+                    <div class="input-group input-group-merge">
+                     
+                      <input type="password" name="password" placeholder="Password" class="form-control" required>
+                      <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                    </div>
+                  </div>
+                  
+                  
+                    {% buttons %}
+                    <div class="mb-3">
+                      <div class="d-flex justify-content-center justify-content-lg-start">
+                    
+                      <input type="hidden" name="next" value="{{ next }}" />      
+               
+                      <button class=" btn-get-started scrollto" type="submit">Sign in</button>
+                    </div>
+                    </div>
+                    {% endbuttons %}
+                    
+                </div>
+              </form>
+              </div>
+              <p class="" style=" width: 25vw; margin-left : 10vw;">
+                <a href="{% url 'authapp:password_reset' %}">
+                  <span>Forgot Password?</span>
+                </a>
+              </p>
+              
+            </div>
+          </div>
+          <!-- /Register -->
+        
+    <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+      <img src="{% static 'img/hero-img.png' %}" class="img-fluid animated" alt="">
+    </div>
+    
+ 
+</section><!-- End Hero -->
+
+    
+
+    
+    <!-- Core JS -->
+    <!-- build:js static/vendor/js/core.js 
+    <script src="{% static 'vendor/libs/jquery/jquery.js' %}"></script>
+    <script src="{% static 'vendor/libs/popper/popper.js' %}"></script>
+    <script src="{% static 'vendor/js/bootstrap.js' %}"></script>-->
+    <script src="{% static 'vendor/libs/perfect-scrollbar/perfect-scrollbar.js' %}"></script>
+
+    <!--<script src="{% static 'vendor/js/menu.js' %}"></script>-->
+    <!-- endbuild -->
+
+    <!-- Vendors JS 
+    <script src="{% static 'vendor/libs/apex-charts/apexcharts.js' %}"></script>-->
+
+    <!-- Main JS -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+    <!-- Page JS 
+    <script src="{% static 'js/dashboards-analytics.js' %}"></script>-->
+
+    <!-- Place this tag in your head or just before your close body tag. 
+    <script async defer src="https://buttons.github.io/buttons.js' %}"></script>-->
+    <!-- Vendor JS Files -->
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/waypoints/noframework.waypoints.js' %}"></script>
+  <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'js/main1.js' %}"></script>
+  {% endblock content %}
+</body>
+</html>

@@ -1,0 +1,43 @@
+{%load static%}
+{% load bootstrap4 %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <!-- site metas -->
+      <title>Welcome</title>
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+      
+      <!-- style css -->
+      <link rel="stylesheet" href="{% static 'css/style.css' %}">
+     
+      </style>
+      
+
+      
+     
+   </head>
+   
+   <body background="{% static 'img/backgrounds/1.jpg' %}">
+      <div class=" layout_padding">
+         <section >
+            <div class="container">
+               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                  <h1 class="sport_text"><br><span style="color: #fff;">Welcome</span></strong></h1>
+                  <p class="lorem_text">Please click on the appropriate button.</p>
+                  <button class="btn btn-outline-primary me-1 mb-1" type="button"><a style="color: #fff;" href="{% url 'authapp:login' %}">Administrator</a></button>
+                  <button class="btn btn-outline-primary me-1 mb-1" type="button"><a style="color: #fff;" href="#">Visitor</a></button>
+
+               </div>
+
+            </div>
+         </section>
+      </div>
+      
+  
+{% endblock content %}
+</body>
+</html>

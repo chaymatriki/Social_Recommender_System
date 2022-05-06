@@ -1,0 +1,13 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: Password reset on localhost:8000
+From: webmaster@localhost
+To: hadil.zrour@ensi-uma.tn
+Date: Sat, 02 Apr 2022 15:06:37 -0000
+Message-ID: <164891199702.11496.18131975222848900176@LAPTOP-UAMN36QC.Home>
+
+Someone asked for password reset for email hadil.zrour@ensi-uma.tn.Follow the Link below
+http://localhost:8000{% url "authapp:password_reset_confirm"
+uidb64=uid token=token %}
+-------------------------------------------------------------------------------
