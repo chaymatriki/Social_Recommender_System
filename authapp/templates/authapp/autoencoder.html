@@ -12,7 +12,7 @@
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>Dashboard</title>
+  <title>AutoEncoder</title>
 
   
   
@@ -39,7 +39,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="{% url 'authapp:dashboardEmp' %}" class="logo"><b>EMPLO<span>YEE</span></b></a>
+      <a href="{% url 'authapp:dashboard' %}" class="logo"><b>ADMINISTRAT<span>ION</span></b></a>
       <!--logo end-->
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
@@ -56,10 +56,12 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="{% url 'authapp:editEmp' %}"><img class="img-circle" src="{{request.user.empl.profile_pic.url}}" width="80"></a></p>
+          <p class="centered"><a href="{% url 'authapp:edit' %}"><!--<img src="{% static 'img/avatars/2.png' %}" class="img-circle" width="80">-->
+            <img class="img-circle" src="{{request.user.admin.profile_pic.url}}" width="80">
+          </a></p>
           <h5 class="centered">{{user.username}}</h5>
           <li class="mt">
-            <a class="active" href="{% url 'authapp:dashboardEmp' %}">
+            <a class="active" href="{% url 'authapp:dashboard' %}">
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
               </a>
@@ -70,10 +72,22 @@
               <span>Account Settings</span>
               </a>
             <ul class="sub">
-              <li><a href="{% url 'authapp:editEmp' %}">Profile</a></li>
+              <li><a href="{% url 'authapp:edit' %}">Profile</a></li>
             
             </ul>
           </li>
+         
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-th"></i>
+              <span>Data Tables</span>
+              </a>
+            <ul class="sub">
+              <li><a href="{% url 'authapp:gestionEmp' %}">Employee's Table</a></li>
+              
+            </ul>
+          </li>
+          
         </ul>
         <!-- sidebar menu end-->
       </div>
@@ -82,23 +96,10 @@
     <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
-    <!--main content start-->
+          
+        <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
-        <h2 class="my-4">Import Dataset in CSV format</h2>
-        <h2 class="my-4">Choose Dataset</h2>
-          <form method="post">
-            {% csrf_token %}
-            <select class="form-control" id="datasets" name="datasets">
-              {% if list %}  
-              {% for l in list %}
-              <option value="{{ l.dataset_path }}">{{l.dataset_path}}</option>
-              {% endfor %}
-              {% endif %}
-            </select>
-                <button class="btn btn-dark my-4" type="submit">Submit</button>
-          </form>
-
         <!-- Basic Bootstrap Table -->
         <div class="row mt">
           <div class="col-md-12">
@@ -130,7 +131,28 @@
                          
                       </tbody>
                 </table>
-              
+                <table class="table table-striped table-advance table-hover">
+                  <h4><i class="fa fa-angle-right"></i> Evaluation Metrics </h4>
+                  <hr>
+                  <thead>
+                    <tr>         
+                      <th>Silhouette score</th>
+                      <th>Davies-Bouldin Index</th>
+                      <th>Calinski-Harabasz Index</th>
+                    </tr>
+                  </thead>
+                        <tbody>               
+                            <tr>                        
+                              <td> {{silhouette}} </td>
+                              <td> {{db}} </td>
+                              <td> {{ch}} </td>                         
+                            </tr>                        
+                        </tbody>
+                  </table>
+                <form method="post">
+                  {% csrf_token %}
+                  <center><button type="submit">Save</button></center>
+                </form>
               {% endif %}
             </div>
             <!-- /content-panel -->

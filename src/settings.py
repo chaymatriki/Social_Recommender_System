@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'authapp',
     'bootstrap4',
     'widget_tweaks',
+    'django_forms_bootstrap',
 ]
 
 MIDDLEWARE = [
@@ -126,10 +127,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-MEDIA_URL = '/img/'
+MEDIA_URL = '/datasets/'
 STATICFILES_DIRS = [STATIC_DIR, ]
 #Nécessaire pour upload image
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'datasets')
 
 
 #Which means , django will find the static file ,like png,jpg,css,js ,in static

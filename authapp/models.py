@@ -45,3 +45,7 @@ class UserRegistrationModel(models.Model):
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
+class Dataset(models.Model):
+    dataset_name = models.CharField(max_length=250)
+    entreprise_name = models.CharField(max_length=250)
+    dataset_path = models.CharField(max_length=250)
