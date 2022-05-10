@@ -26,7 +26,7 @@ from tensorflow.keras import Input
 from tensorflow.keras.layers import Dense
 from tensorflow.keras.models import Model
 from sklearn.metrics import silhouette_score, davies_bouldin_score, calinski_harabasz_score
-import ClusterEnsembles as CE
+#import ClusterEnsembles as CE
 
 
 
@@ -404,7 +404,7 @@ def editEmp(request):
     return render(request, 'authapp/profilEmp.html', context=context)
 
 
-@login_required(login_url='login')
+"""@login_required(login_url='login')
 @admin_only
 def clusterEnsemble(request):
     url=request.GET.get('uploaded_file_url')
@@ -512,4 +512,4 @@ def clusterEnsemble(request):
         dataset.entreprise_name = 'ent1'
         dataset.dataset_path = 'datasets/result_'+url[10:]
         dataset.save()
-        return render(request, 'authapp/clusterEnsemble.html')
+        return render(request, 'authapp/clusterEnsemble.html')"""

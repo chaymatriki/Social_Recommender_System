@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import   addUser, edit, dashboard, insert_data,gestionEmp,delete, dashboardEmp,editEmp, loginPage, kmeans, pca, autoencoder, clusterEnsemble
+from .views import   addUser, edit, dashboard, insert_data,gestionEmp,delete, dashboardEmp,editEmp, loginPage, kmeans, pca, autoencoder
 from django.urls import reverse_lazy
 from django.contrib.auth.views import (LoginView, LogoutView, PasswordResetDoneView, PasswordResetView,
                                        PasswordResetCompleteView, PasswordResetConfirmView,
@@ -51,7 +51,7 @@ urlpatterns = [
     path('kmeans/', kmeans, name='kmeans'),
     path('pca/', pca, name='pca'),
     path('autoencoder/', autoencoder, name='autoencoder'),
-    path('clusterEnsemble/', clusterEnsemble, name='autoencoder'),
+    #path('clusterEnsemble/', clusterEnsemble, name='autoencoder'),
 
 
 ]
